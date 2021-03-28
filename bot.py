@@ -1,4 +1,4 @@
-# Bot Python buat nyari jawaban
+# Bot Python
 import discord
 import random as rdm
 import os
@@ -10,23 +10,23 @@ client = discord.Client()
 async def on_message(message):
     if message.author == client.user:
         return
-    # Variabel buat random jawaban pilihan ganda
+    # Variable for randomize multiple choice # Variabel buat random jawaban pilihan ganda
     Jawaban = ['A', 'B', 'C', 'D']
 
-    # Variabel buat random jawaban kerang
+    # Variable for randomize Magic Conch answer # Variabel buat random jawaban kerang
     KerangAjaib = ['Iya', 'Tidak', 'Bisa jadi']
 
-    # Buat jawaban
+    # For answer # Buat jawaban
     if '>jawaban' in message.content:
         response = rdm.choice(Jawaban)
         await message.channel.send(response)
 
-    # Buat Kerang
+    # For magic conch # Buat Kerang
     elif '>kerang' in message.content:
         response = rdm.choice(KerangAjaib)
         await message.channel.send(response)
 
-    # Ini about mengenai bot
+    # For 'about' command # Ini about mengenai bot
     elif message.content == '>about':
         about = """Bot digunakan untuk mencari jawaban pilihan ganda. Awalnya bermula ketika UAS dan UU datang namun jawaban yang ada di otak tak kunjung datang,
 \n lalu salah satu penduduk server ada yang mengeluh dan bilang "coba ada random generating buat jawaban jadi enak kalo ngasal".
@@ -39,17 +39,18 @@ async def on_message(message):
 
         await message.channel.send(about)
 
-    # Ini untuk bantuan mengenai perintah bot
+    # For bot command 'help' # Ini untuk bantuan mengenai perintah bot
     elif message.content == '>help':
         await message.channel.send("""'>jawaban' untuk meminta jawaban kepada bot
         '>kerang' jika kebingungan dan membutuhkan pencerahan
         '>about' untung mengetahui tentang bot""")
     
-    # Jika perintah tidak dikenali
+    # If the command is not recognised # Jika perintah tidak dikenali
     else:
         response = "Perintah salah, coba ketik '>help' untuk mengetahui perintah/input."
         await message.channel.send(response)
 
+# Replace with your own bot token # Ganti dengan bot token punya sendiri
 client.run("NzYxODA1Nzg3NjI1OTQ3MTUw.X3f87Q.U3QUYR2ArRAeCaO12aSYJRexB2U")
 
 print("Bot Discord is stop")
